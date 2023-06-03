@@ -1,5 +1,5 @@
 import { RequestHandler } from "express";
-import Note, { NoteDocument } from "../models/note.models";
+import Note, { NoteDocument } from "../models/note.model";
 
 const create: RequestHandler = async (req, res) => {
   const { title, description } = req.body as NoteDocument;

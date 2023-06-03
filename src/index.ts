@@ -1,6 +1,6 @@
 import express from "express";
 import "./db";
-import * as notesController from "./controllers/note.controllers";
+import noteRouter from "./routers/note.router";
 
 // create server
 const app = express();
@@ -9,11 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", notesController.getAllNotes);
-app.get("/:id", notesController.getSingleById);
-app.post("/create", notesController.create);
-app.patch("/:noteId", notesController.updateNote);
-app.delete("/:noteId", notesController.deleteNote);
+// Routes
+app.use("/note", noteRouter);
 
 const PORT = 8000;
 // listen on port
